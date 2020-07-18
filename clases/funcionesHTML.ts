@@ -9,6 +9,7 @@ namespace Vehiculos
         document.getElementById("btnEliminar")!.addEventListener("click",eliminar);
         document.getElementById("tipoVehiculo")!.addEventListener("change",cambioTipo);
         document.getElementById("filtroVehiculo")!.addEventListener("change",filtradoTipo);
+        document.getElementById("idOcultar")!.addEventListener("change",filtradoColumna);
     })
 
     window.addEventListener("load",hideForm);
@@ -132,9 +133,14 @@ namespace Vehiculos
         {
             var tempLista = listaVehiculos.filter(function(item)
             {
-                return item;
+                
             });
         }
+    }
+
+    export function filtradoColumna()
+    {
+        
     }
 
     export function eliminar()

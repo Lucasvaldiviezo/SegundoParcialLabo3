@@ -8,9 +8,10 @@ var Vehiculos;
         document.getElementById("btnAgregar").addEventListener("click", guardar);
         document.getElementById("btnEliminar").addEventListener("click", eliminar);
         document.getElementById("tipoVehiculo").addEventListener("change", cambioTipo);
+        document.getElementById("filtroVehiculo").addEventListener("change", filtradoTipo);
+        document.getElementById("idOcultar").addEventListener("change", filtradoColumna);
     });
     window.addEventListener("load", hideForm);
-    window.addEventListener("load", filtradoTipo);
     var listaVehiculos = new Array();
     function hideForm() {
         document.getElementById("contAgregar").hidden = true;
@@ -112,12 +113,15 @@ var Vehiculos;
     }
     Vehiculos.guardar = guardar;
     function filtradoTipo() {
-        /*if(document.getElementById("filtroVehiculo")!.value == "1")
-        {
-            
-        }*/
+        if (document.getElementById("filtroVehiculo").value == "1") {
+            var tempLista = listaVehiculos.filter(function (item) {
+            });
+        }
     }
     Vehiculos.filtradoTipo = filtradoTipo;
+    function filtradoColumna() {
+    }
+    Vehiculos.filtradoColumna = filtradoColumna;
     function eliminar() {
         var control = false;
         var cont = 0;
@@ -136,7 +140,6 @@ var Vehiculos;
                 cont = cont + 1;
             }
         });
-        console.log(listaVehiculos);
     }
     Vehiculos.eliminar = eliminar;
     function clickGrilla(e) {
