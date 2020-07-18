@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Practica 2do Parcial</title>
+        <script src="./clases/Vehiculo.js"></script> 
+        <script src="./clases/Auto.js"></script> 
+        <script src="./clases/Camioneta.js"></script> 
+        <script src="./clases/funcionesHtml.js"></script> 
+        <link rel="stylesheet" href="./css/estilo.css"></link> 
+    </head>
+    <body>
+        <input type="button" value="Alta" id = "btnAlta">
+        <div id="contAgregar" class="contenedor" >
+            <label>ID:</label>
+            <input type="text" id="id" class="sinError" name="marcaVehiculo" disabled><br><br>
+            <label for="marca">Marca:</label>
+            <input type="text" id="marca" class="sinError" name="marcaVehiculo"><br><br>
+            <label for="modelo">Modelo:</label>
+            <input type="text" id="modelo" class="sinError" name="modeloVehiculo"><br><br>
+            <label for="precio">Precio:</label>
+            <input type="text" id="precio" class="sinError" name="precioVehiculo"><br><br>
+            <label for="tipoVehiculo">Tipo de Vehiculo:</label> <br>
+            <select name="tipoDeVehiculo" id="tipoVehiculo" class="select">
+                <option value="1" selected>Auto</option>
+                <option value="2">Camioneta</option>
+            </select><br>
+            <div id="infoCamioneta">
+                <input type="checkbox" id="cuatroXcuatro" name="camionetaBool">
+                <label for="cuatroXcuatro"> ¿Es 4x4?</label><br><br>
+            </div>
+            
+            <input type="button" value="Agregar" id = "btnAgregar">
+            <input type="button" value="Eliminar" id="btnEliminar">
+            <input type="button" value="Cerrar" id = "btnCerrar">
+        </div><br><br>
+        <div id="filtroCont" class="filtrosCont">
+            <h1>Filtros</h1>
+            <label for="filtroVehiculo">Filtrar Por: </label>
+            <select name="filtroDeVehiculo" id="filtroVehiculo" >
+                <option value="1" selected>Auto</option>
+                <option value="2">Camioneta</option>
+            </select>
+        </div>
+        
+        <h3>Lista de Vehiculos</h3>
+        <table id="tabla">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Precio</th>
+                    <th>Accion</th>
+                </tr>
+            </thead>
+            <tbody id="tCuerpo">
+                
+            </tbody>
+        </table> 
+       
+    </body>
+</html>
