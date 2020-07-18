@@ -105,7 +105,7 @@ var Vehiculos;
             control = false;
             document.getElementById("marca").value = "";
             document.getElementById("modelo").value = "";
-            document.getElementById("precio").value = 1;
+            document.getElementById("precio").value = "";
             document.getElementById("cuatroXcuatro").checked = false;
             document.getElementById("contAgregar").hidden = true;
         }
@@ -119,13 +119,24 @@ var Vehiculos;
     }
     Vehiculos.filtradoTipo = filtradoTipo;
     function eliminar() {
-        alert("entre");
         var control = false;
+        var cont = 0;
         listaVehiculos.forEach(function (vehiculo) {
             if (parseInt(rowGlobal.childNodes[0].innerHTML) == vehiculo.id) {
                 rowGlobal.remove();
+                listaVehiculos.splice(cont, 1);
+                document.getElementById("id").value = "";
+                document.getElementById("marca").value = "";
+                document.getElementById("modelo").value = "";
+                document.getElementById("precio").value = "";
+                document.getElementById("cuatroXcuatro").checked = false;
+                document.getElementById("contAgregar").hidden = true;
+            }
+            else {
+                cont = cont + 1;
             }
         });
+        console.log(listaVehiculos);
     }
     Vehiculos.eliminar = eliminar;
     function clickGrilla(e) {

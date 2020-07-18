@@ -8,10 +8,10 @@ namespace Vehiculos
         document.getElementById("btnAgregar")!.addEventListener("click",guardar);
         document.getElementById("btnEliminar")!.addEventListener("click",eliminar);
         document.getElementById("tipoVehiculo")!.addEventListener("change",cambioTipo);
+        document.getElementById("filtroVehiculo")!.addEventListener("change",filtradoTipo);
     })
 
     window.addEventListener("load",hideForm);
-    window.addEventListener("load",filtradoTipo);
 
     var listaVehiculos:Array<Vehiculo> = new Array<Vehiculo>();
 
@@ -119,7 +119,7 @@ namespace Vehiculos
             control = false;
             document.getElementById("marca")!.value = "";
             document.getElementById("modelo")!.value = "";
-            document.getElementById("precio")!.value = 1;
+            document.getElementById("precio")!.value = "";
             document.getElementById("cuatroXcuatro")!.checked = false;
             document.getElementById("contAgregar")!.hidden = true;
         }
@@ -128,20 +128,34 @@ namespace Vehiculos
 
     export function filtradoTipo()
     {
-        /*if(document.getElementById("filtroVehiculo")!.value == "1")
+        if(document.getElementById("filtroVehiculo")!.value == "1")
         {
-            
-        }*/
+            var tempLista = listaVehiculos.filter(function(item)
+            {
+                return item;
+            });
+        }
     }
 
     export function eliminar()
     {
         var control:boolean = false;
+        var cont:number = 0;
         listaVehiculos.forEach(function(vehiculo)
         {
             if(parseInt(rowGlobal.childNodes[0].innerHTML)== vehiculo.id)
             {
                 rowGlobal.remove();
+                listaVehiculos.splice(cont,1);
+                document.getElementById("id")!.value="";
+                document.getElementById("marca")!.value = "";
+                document.getElementById("modelo")!.value = "";
+                document.getElementById("precio")!.value = "";
+                document.getElementById("cuatroXcuatro")!.checked = false;
+                document.getElementById("contAgregar")!.hidden = true;
+            }else
+            {
+                cont = cont +1;
             }
         });
     }
